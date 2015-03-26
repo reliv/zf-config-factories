@@ -1,0 +1,29 @@
+{
+    "name": "Rm/RmFactoriesAsConfiguration",
+    "description": "Config Factories for Zend Framework 2",
+    "type": "library",
+    "license": "BSD",
+    "keywords": [
+        "zf2",
+        "config",
+        "factories",
+        "service",
+        "manager"
+    ],
+    "homepage": "https://github.com/rodmcnew",
+    "authors": [
+        {
+            "name": "Rod McNew",
+            "homepage": "https://github.com/rodmcnew"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "ConfigFactories\\": "src/"
+        }
+    }
+}
