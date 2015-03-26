@@ -1,5 +1,5 @@
 {
-    "name": "rm/rm-factories-as-configuration-zf-module",
+    "name": "rm/rm-factories-as-configuration-zf2-module",
     "description": "Config Factories for Zend Framework 2",
     "type": "library",
     "license": "BSD",
