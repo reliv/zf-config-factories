@@ -3,5 +3,5 @@
 return array(
     'RmFactoriesAsConfiguration\Module'                                => __DIR__ . '/Module.php',
     'RmFactoriesAsConfiguration\ConfigDrivenAbstractFactory'           => __DIR__ . '/src/ConfigDrivenAbstractFactory.php',
-    'RmFactoriesAsConfiguration\ControllerConfigDrivenAbstractFactory' => __DIR__ . '/src/ControllerConfigAbstractFactory.php',
+    'RmFactoriesAsConfiguration\ControllerConfigDrivenAbstractFactory' => __DIR__ . '/src/ControllerConfigDrivenAbstractFactory.php',
 );
