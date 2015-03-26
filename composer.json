@@ -1,6 +1,6 @@
 {
     "name": "rm/factories-as-configuration-zf2-module",
-    "description": "Config Factories for Zend Framework 2",
+    "description": "Inject dependencies into ZF2 services via configuration rather than factory classes.",
     "type": "library",
     "license": "BSD",
     "keywords": [
