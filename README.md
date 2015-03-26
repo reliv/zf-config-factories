@@ -8,7 +8,7 @@ Example usage in config:
         'class' => 'App\Controller\EmailTemplateApiController',
         'arguments' => ['Doctrine\ORM\EntityManager'],
         'calls' => [
-            'setCurrentPwsService' => ['Pws\Service\CurrentPws']
+            'setEmailService' => ['Email\Services\EmailService']
         ]
     ]
 ]
