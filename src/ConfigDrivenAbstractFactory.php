@@ -4,8 +4,8 @@
  *
  * PHP version 5
  *
- * @category  Reliv
- * @package   PwsContactOwner\src
+ * @category  ZF2 Modules
+ * @package   RmFactoriesAsConfiguration
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License
@@ -24,8 +24,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  *
  * PHP version 5
  *
- * @category  Reliv
- * @package   PwsContactOwner\src
+ * @category  ZF2 Modules
+ * @package   RmFactoriesAsConfiguration
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License
