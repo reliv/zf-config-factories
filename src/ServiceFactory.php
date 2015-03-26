@@ -13,7 +13,7 @@
  * @link      https://github.com/reliv
  */
 
-namespace RmFactoriesAsConfiguration;
+namespace Rm\FactoriesAsConfiguration;
 
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -32,7 +32,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * @version   Release: <package_version>
  * @link      https://github.com/reliv
  */
-class ConfigDrivenAbstractFactory implements AbstractFactoryInterface
+class ServiceFactory implements AbstractFactoryInterface
 {
 
     /**

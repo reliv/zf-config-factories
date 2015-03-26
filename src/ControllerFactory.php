@@ -13,7 +13,7 @@
  * @link      https://github.com/reliv
  */
 
-namespace RmFactoriesAsConfiguration;
+namespace Rm\FactoriesAsConfiguration;
 
 use Zend\ServiceManager\AbstractFactoryInterface;
 
@@ -31,7 +31,7 @@ use Zend\ServiceManager\AbstractFactoryInterface;
  * @version   Release: <package_version>
  * @link      https://github.com/reliv
  */
-class ControllerConfigDrivenFactory extends ConfigDrivenAbstractFactory implements AbstractFactoryInterface
+class ControllerFactory extends ServiceFactory implements AbstractFactoryInterface
 {
     /**
      * @var string the config key of the target service manager
