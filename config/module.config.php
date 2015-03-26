@@ -1,13 +1,13 @@
 <?php
-return [
-    'service_manager' => [
-        'abstract_factories' => [
+return array(
+    'service_manager' => array(
+        'abstract_factories' => array(
             'RmFactoriesAsConfiguration\ConfigDrivenAbstractFactory'
-        ],
-    ],
-    'controllers' => [
-        'abstract_factories' => [
+        ),
+    ),
+    'controllers' => array(
+        'abstract_factories' => array(
             'RmFactoriesAsConfiguration\ControllerConfigDrivenAbstractFactory'
-        ],
-    ]
-];
+        ),
+    )
+);
