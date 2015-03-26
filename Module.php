@@ -7,7 +7,6 @@
  *
  * LICENSE: No License yet
  *
- * @category  Reliv
  * @author    Rod McNew
  * @copyright 2012 Rod Mcnew
  * @license   License.txt New BSD License
