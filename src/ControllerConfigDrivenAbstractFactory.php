@@ -31,7 +31,7 @@ use Zend\ServiceManager\AbstractFactoryInterface;
  * @version   Release: <package_version>
  * @link      https://github.com/reliv
  */
-class ControllerConfigDrivenFactory extends ConfigDrivenFactory implements AbstractFactoryInterface
+class ControllerConfigDrivenFactory extends ConfigDrivenAbstractFactory implements AbstractFactoryInterface
 {
     /**
      * @var string the config key of the target service manager
