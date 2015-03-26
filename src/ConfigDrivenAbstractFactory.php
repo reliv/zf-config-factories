@@ -32,7 +32,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * @version   Release: <package_version>
  * @link      https://github.com/reliv
  */
-class ControllerConfigDrivenAbstractFactory implements AbstractFactoryInterface
+class ConfigDrivenAbstractFactory implements AbstractFactoryInterface
 {
 
     /**
