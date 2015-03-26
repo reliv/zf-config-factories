@@ -1,6 +1,6 @@
 <?php
 /**
- * ConfigDrivenFactory.php
+ * Config Driven Abstract Factory
  *
  * PHP version 5
  *
@@ -20,7 +20,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 
 /**
- * ConfigDrivenFactory
+ * Config Driven Abstract Factory
  *
  * PHP version 5
  *
