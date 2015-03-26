@@ -1,11 +1,11 @@
 <?php
 /**
- * ControllerConfigurator.php
+ * Controller Config Driven Abstract Factory
  *
  * PHP version 5
  *
- * @category  Reliv
- * @package   RmConfigurator
+ * @category  ZF2 Modules
+ * @package   RmFactoriesAsConfiguration
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License
@@ -19,12 +19,12 @@ use Zend\ServiceManager\AbstractFactoryInterface;
 
 
 /**
- * ControllerConfigurator
+ * Controller Config Driven Abstract Factory
  *
  * PHP version 5
  *
- * @category  Reliv
- * @package   RmConfigurator
+ * @category  ZF2 Modules
+ * @package   RmFactoriesAsConfiguration
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License
