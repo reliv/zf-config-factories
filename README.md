@@ -28,7 +28,7 @@ Example usage with setter injection:
 ]
 ```
 
-Example usage with constructor injection and setter injection:
+Example usage with both constructor injection and setter injection:
 ```php
 'config_factories' => [
     'App\Controller\EmailTemplateApiController' => [
