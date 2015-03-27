@@ -6,6 +6,14 @@ Example usage with constructor injection in module.config.php:
 ```php
 'controllers' => [
 
+    'invokables' => [
+        //...
+    ]
+
+    'factories' => [
+        //...
+    ]
+
     // This is a special config key that RmFactoriesAsConfiguration looks for
     'config_factories' => [
     
