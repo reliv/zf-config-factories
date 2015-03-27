@@ -116,6 +116,12 @@ class ServiceFactory implements AbstractFactoryInterface
         $config = $this->getFactoryConfig($serviceMgr, $name);
 
         if (isset($config['arguments'])) {
+            /**
+             * Note: If this reflection usage is found to be slow, the plan is
+             * to use a case statement with 30 cases to construct classes that
+             * take 30 arguments or less and only use reflection on classes that
+             * take more than 30 arguments in their constructors.
+             */
             $serviceClass = new \ReflectionClass($config['class']);
             $service = $serviceClass->newInstanceArgs(
                 $this->fetchServices($serviceMgr, $config['arguments'])
