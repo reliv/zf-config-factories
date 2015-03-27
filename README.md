@@ -4,7 +4,7 @@ If most of your classes are services, this module can cut the number of classes 
 
 Example usage with constructor injection:
 ```php
-<?php // in module.config.php
+// in module.config.php
 'controllers' => [
 
     'invokables' => [
