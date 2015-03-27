@@ -19,11 +19,11 @@ Example usage with constructor injection:
             // This is an array of service names that the class's constructor takes
             'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
         ]
-    ]
+    ],
 
     'invokables' => [
         //...
-    ]
+    ],
 
     'factories' => [
         //...
