@@ -3,6 +3,8 @@ Inject dependencies into ZF2 services via configuration rather than factory clas
 Example usage with constructor injection in module.config.php:
 ```php
 'controllers' => [
+
+    // This is a special config key that RmFactoriesAsConfiguration looks for
     'config_factories' => [
     
         // This is the name of the service
