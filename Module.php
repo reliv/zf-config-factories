@@ -38,17 +38,6 @@ class Module
      */
     public function getConfig()
     {
-        return array(
-            'service_manager' => array(
-                'abstract_factories' => array(
-                    'Rm\FactoriesAsConfiguration\ServiceFactory'
-                ),
-            ),
-            'controllers' => array(
-                'abstract_factories' => array(
-                    'Rm\FactoriesAsConfiguration\ControllerFactory'
-                ),
-            )
-        );
+        return include __DIR__ . '/config/module.config.php';
     }
 }
