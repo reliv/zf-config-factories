@@ -20,7 +20,7 @@ Example usage with constructor injection in module.config.php:
 
 Example usage with setter injection:
 ```php
-'services' => [
+'service_manager' => [
     'config_factories' => [
         'App\Email\EmailService' => [
             'class' => 'App\Model\EmailService',
