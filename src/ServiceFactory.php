@@ -121,7 +121,7 @@ class ServiceFactory implements AbstractFactoryInterface
                 $this->fetchServices($serviceMgr, $config['arguments'])
             );
         } else {
-            $service = new $config['class'];
+            $service = new $config['class']();
         }
 
         if (isset($config['calls'])) {
