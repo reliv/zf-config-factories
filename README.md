@@ -1,6 +1,6 @@
 Inject dependencies into ZF2 services via configuration rather than factory classes.
 ======
-If most of your classes are services, this module can cut the number of classes you have in half by cutting out unnecessary factory clases. This will also speed up your app by cutting out the time it takes to instantiate factory classes.
+If most of your classes are services, this module can cut the number of classes you have in half by cutting out unnecessary factory classes. This will also speed up your app by cutting out the time it takes to instantiate factory classes.
 
 Example usage with constructor injection in module.config.php:
 ```php
