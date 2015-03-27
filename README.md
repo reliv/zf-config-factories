@@ -1,7 +1,7 @@
 Inject dependencies into ZF2 services via configuration rather than factory classes.
 ======
 Example usage with constructor injection:
-```
+```php
 'config_factories' => [
 
     // This is the name of the service
@@ -17,7 +17,7 @@ Example usage with constructor injection:
 ```
 
 Example usage with setter injection:
-```
+```php
 'config_factories' => [
     'App\Controller\EmailTemplateApiController' => [
         'class' => 'App\Controller\EmailTemplateApiController',
@@ -29,7 +29,7 @@ Example usage with setter injection:
 ```
 
 Example usage with constructor injection and setter injection:
-```
+```php
 'config_factories' => [
     'App\Controller\EmailTemplateApiController' => [
         'class' => 'App\Controller\EmailTemplateApiController',
