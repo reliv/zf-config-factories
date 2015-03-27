@@ -7,14 +7,6 @@ Example usage with constructor injection:
 // in module.config.php
 'controllers' => [
 
-    'invokables' => [
-        //...
-    ]
-
-    'factories' => [
-        //...
-    ]
-
     // This is a special config key that RmFactoriesAsConfiguration looks for
     'config_factories' => [
     
@@ -27,6 +19,14 @@ Example usage with constructor injection:
             // This is an array of service names that the class's constructor takes
             'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
         ]
+    ]
+
+    'invokables' => [
+        //...
+    ]
+
+    'factories' => [
+        //...
     ]
 ]
 ```
