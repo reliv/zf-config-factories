@@ -1,6 +1,6 @@
 Inject dependencies into ZF2 services via configuration rather than factory classes.
 ======
-Write less code and speed up your app by cutting out the time it takes to instantiate factory classes.
+Write less boilerplate code and speed up your app by cutting out the time it takes to instantiate factory classes.
 
 Example usage with constructor injection:
 ```php
