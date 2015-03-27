@@ -1,6 +1,6 @@
 Inject dependencies into ZF2 services via configuration rather than factory classes.
 ======
-Example usage with constructor injection:
+Example usage with constructor injection in module.config.php:
 ```php
 'controllers' => [
     'config_factories' => [
