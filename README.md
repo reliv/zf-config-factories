@@ -7,17 +7,30 @@ Example usage with constructor injection:
 // in module.config.php
 'controllers' => [
 
-    // This is a special config key that RmFactoriesAsConfiguration looks for
+    // This is a special config key that RmFactoriesAsConfiguration reads.
     'config_factories' => [
     
-        // This is the name of the service
-        'App\Controller\EmailTemplateApiController' => [
+        // This is the name of the service.
+        'EmailTemplateApiController' => [
         
-            // This is the name of the class that the service is
+            /**
+             * This is the service's  class name.
+             * Not required if the service's name is the same as its class name.
+             */
             'class' => 'App\Controller\EmailTemplateApiController',
             
-            // This is an array of service names that the class's constructor takes
+             * This is an array of service names that the class's constructor takes.
+             * Not required if the service's constructor takes no arguments.
+             */
             'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
+            
+            /** 
+             * This is an array of setters to call mapped to service names to inject into each setter.
+             * Not required if your service has no setters.
+             */ 
+            'calls' => [
+                'setFunService' => ['Name\Of\Another\Service\I\Want\To\Inject']
+            ]
         ]
     ],
 
@@ -31,30 +44,15 @@ Example usage with constructor injection:
 ]
 ```
 
-Example usage with setter injection:
+Example recomended usage. Constructor injection with the service name being the same as its class name:
 ```php
 'service_manager' => [
     'config_factories' => [
         'App\Email\EmailService' => [
-            'class' => 'App\Model\EmailService',
-            'calls' => [
-                'setFunService' => ['Name\Of\Another\Service\I\Want\To\Inject']
-            ]
-        ]
-    ]
-]
-```
-
-Example usage with both constructor injection and setter injection:
-```php
-'view_helpers' => [
-    'config_factories' => [
-        'funHelper' => [
-            'class' => 'App\View\Helper\FunHelper',
-            'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
-            'calls' => [
-                'setFunService' => ['Name\Of\Another\Service\I\Want\To\Inject']
-            ]
+            'arguments' => [
+                'Name\Of\A\Service\I\Want\To\Inject',
+                'Name\Of\A\AnotherService\I\Want\To\Inject'
+            ],
         ]
     ]
 ]
