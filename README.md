@@ -13,6 +13,14 @@ Example of constructor injection with the service name being the same as its cla
             ],
         ]
     ]
+    
+    'invokables' => [
+        //... Other ZF2 services here
+    ],
+
+    'factories' => [
+        //... Other ZF2 services here
+    ]
 ]
 ```
 
@@ -48,13 +56,5 @@ Example usage with all options:
             ]
         ]
     ],
-
-    'invokables' => [
-        //...
-    ],
-
-    'factories' => [
-        //...
-    ]
 ]
 ```
