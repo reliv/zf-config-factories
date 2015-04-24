@@ -59,20 +59,20 @@ class ServiceFactory implements AbstractFactoryInterface
      * @var array map of characters to be replaced through strtr
      */
     protected $canonicalNamesReplacements
-        = array(
+        = [
             '-' => '',
             '_' => '',
             ' ' => '',
             '\\' => '',
             '/' => ''
-        );
+        ];
 
     /**
      * Lookup for canonicalized names.
      *
      * @var array
      */
-    protected $canonicalNames = array();
+    protected $canonicalNames = [];
 
     /**
      * Determine if we can create a service with name
@@ -137,7 +137,7 @@ class ServiceFactory implements AbstractFactoryInterface
         if (isset($config['calls'])) {
             foreach ($config['calls'] as $methodName => $arguments) {
                 call_user_func_array(
-                    array($service, $methodName),
+                    [$service, $methodName],
                     $this->fetchServices($serviceMgr, $arguments)
                 );
             }
@@ -158,7 +158,7 @@ class ServiceFactory implements AbstractFactoryInterface
         ServiceLocatorInterface $serviceMgr,
         $argumentServiceNames
     ) {
-        $services = array();
+        $services = [];
         foreach ($argumentServiceNames as $serviceNames) {
             $services[] = $serviceMgr->get($serviceNames);
         }
@@ -192,7 +192,7 @@ class ServiceFactory implements AbstractFactoryInterface
     public function buildFactoryConfig(ServiceLocatorInterface $serviceMgr)
     {
         $config = $serviceMgr->get('config');
-        $this->configFactories = array();
+        $this->configFactories = [];
         if (isset($config[$this->serviceMgrKey][$this->configKey])) {
             foreach (
                 $config[$this->serviceMgrKey][$this->configKey] as $key =>
