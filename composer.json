@@ -1,5 +1,5 @@
 {
-    "name": "zf2-factories-as-configuration",
+    "name": "reliv/zf2-factories-as-configuration",
     "description": "Inject dependencies into ZF2 services via configuration rather than factory classes.",
     "type": "library",
     "license": "BSD",
