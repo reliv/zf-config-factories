@@ -33,6 +33,7 @@ Example usage with all options:
              */
             'class' => 'App\Controller\EmailTemplateApiController',
             
+            /**
              * This is an array of service names that the class's constructor takes.
              * Not required if the service's constructor takes no arguments.
              */
