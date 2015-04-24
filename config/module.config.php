@@ -2,22 +2,22 @@
 return array(
     'service_manager' => array(
         'abstract_factories' => array(
-            'Rm\FactoriesAsConfiguration\ServiceFactory'
+            'Reliv\FactoriesAsConfiguration\ServiceFactory'
         ),
     ),
     'controllers' => array(
         'abstract_factories' => array(
-            'Rm\FactoriesAsConfiguration\ControllerFactory'
+            'Reliv\FactoriesAsConfiguration\ControllerFactory'
         ),
     ),
     'view_helpers' => array(
         'abstract_factories' => array(
-            'Rm\FactoriesAsConfiguration\ViewHelperFactory'
+            'Reliv\FactoriesAsConfiguration\ViewHelperFactory'
         ),
     ),
     'controller_plugins' => array(
         'abstract_factories' => array(
-            'Rm\FactoriesAsConfiguration\ControllerPluginFactory'
+            'Reliv\FactoriesAsConfiguration\ControllerPluginFactory'
         ),
     )
 );

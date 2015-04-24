@@ -13,7 +13,7 @@
  * @link      https://github.com/reliv
  */
 
-namespace Rm\FactoriesAsConfiguration;
+namespace Reliv\FactoriesAsConfiguration;
 
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

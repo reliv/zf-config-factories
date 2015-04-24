@@ -13,7 +13,7 @@
  * @version   GIT: <git_id>
  */
 
-namespace Rm\FactoriesAsConfiguration;
+namespace Reliv\FactoriesAsConfiguration;
 
 /**
  * ZF2 Module Config.  Required by ZF2
