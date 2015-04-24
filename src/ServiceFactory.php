@@ -115,13 +115,23 @@ class ServiceFactory implements AbstractFactoryInterface
 
         $config = $this->getFactoryConfig($serviceMgr, $name);
 
+        /**
+         * The 'class' key is optional. If it is not in the config, we assume
+         * the service's name is its class name
+         */
+        if (isset($config['class'])) {
+            $className = $config['class'];
+        } else {
+            $className = $config['name'];
+        }
+
         if (isset($config['arguments']) && count($config['arguments']) > 0) {
             $service = $this->instantiateWithArguments(
-                $config['class'],
+                $className,
                 $this->fetchServices($serviceMgr, $config['arguments'])
             );
         } else {
-            $service = new $config['class']();
+            $service = new $className();
         }
 
         if (isset($config['calls'])) {
@@ -189,7 +199,7 @@ class ServiceFactory implements AbstractFactoryInterface
                 $value
             ) {
                 $this->configFactories[$this->canonicalizeName($key)]
-                    = $value;
+                    = array_merge($value, ['name' => $key]);
             }
         }
     }
