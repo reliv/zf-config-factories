@@ -2,6 +2,8 @@ Inject dependencies into ZF2 services via configuration rather than factory clas
 ======
 Write less boilerplate code and speed up your app by cutting out the time it takes to instantiate factory classes.
 
+
+
 Example of constructor injection with the service name being the same as its class name:
 ```php
 'service_manager' => [
