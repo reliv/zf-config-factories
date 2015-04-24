@@ -5,13 +5,16 @@ Write less boilerplate code and speed up your app by cutting out the time it tak
 Example of constructor injection with the service name being the same as its class name:
 ```php
 'service_manager' => [
+
     'config_factories' => [
+    
         'App\Email\EmailService' => [
             'arguments' => [
                 'Name\Of\A\Service\I\Want\To\Inject',
                 'Name\Of\A\AnotherService\I\Want\To\Inject'
             ],
         ]
+        
     ]
     
     'invokables' => [
