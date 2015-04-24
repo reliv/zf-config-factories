@@ -2,7 +2,7 @@ Inject dependencies into ZF2 services via configuration rather than factory clas
 ======
 Write less boilerplate code and speed up your app by cutting out the time it takes to instantiate factory classes.
 
-Example usage with constructor injection:
+Example usage:
 ```php
 // in module.config.php
 'controllers' => [
@@ -44,7 +44,7 @@ Example usage with constructor injection:
 ]
 ```
 
-Example recomended usage. Constructor injection with the service name being the same as its class name:
+Constructor injection with the service name being the same as its class name:
 ```php
 'service_manager' => [
     'config_factories' => [
