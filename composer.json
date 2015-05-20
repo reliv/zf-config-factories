@@ -1,29 +1,33 @@
 {
-    "name": "reliv/zf2-factories-as-configuration",
-    "description": "Inject dependencies into ZF2 services via configuration rather than factory classes.",
-    "type": "library",
-    "license": "BSD",
-    "keywords": [
-        "zf2",
-        "config",
-        "factories",
-        "service",
-        "manager"
-    ],
-    "homepage": "https://github.com/rodmcnew",
-    "authors": [
-        {
-            "name": "Rod McNew",
-            "homepage": "https://github.com/rodmcnew"
-        }
-    ],
-    "require": {
-        "php": ">=5.4",
-        "zendframework/zendframework": "2.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Reliv\\FactoriesAsConfiguration\\": "src/"
-        }
+  "name": "reliv/zf2-factories-as-configuration",
+  "description": "Inject dependencies into ZF2 services via configuration rather than factory classes.",
+  "type": "library",
+  "license": "BSD",
+  "keywords": [
+    "zf2",
+    "config",
+    "factories",
+    "service",
+    "manager"
+  ],
+  "homepage": "https://github.com/rodmcnew",
+  "authors": [
+    {
+      "name": "Rod McNew",
+      "homepage": "https://github.com/rodmcnew"
     }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "zendframework/zendframework": "2.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.6.*",
+    "squizlabs/php_codesniffer": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Reliv\\FactoriesAsConfiguration\\": "src/"
+    }
+  }
 }
