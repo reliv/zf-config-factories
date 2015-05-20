@@ -1,0 +1,13 @@
+language: php
+php:
+  - "7.0"
+  - "5.6"
+  - "5.5"
+  - "5.4"
+before_script:
+  - composer self-update
+  - composer global require fxp/composer-asset-plugin
+  - composer update --prefer-source
+script:
+  - find . -type d \( -path ./vendor -o -path ./test \) -prune -o -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
+  - ./vendor/bin/phpcs --standard=PSR2 --ignore=vendor,test,autoload_classmap.php --extensions=php ./
