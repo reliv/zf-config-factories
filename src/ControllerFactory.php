@@ -17,7 +17,6 @@ namespace Reliv\FactoriesAsConfiguration;
 
 use Zend\ServiceManager\AbstractFactoryInterface;
 
-
 /**
  * Controller Config Driven Abstract Factory
  *
@@ -42,4 +41,4 @@ class ControllerFactory extends ServiceFactory implements AbstractFactoryInterfa
      * @var bool used know it we must look for the real service locator inside the given service locator
      */
     protected $serviceMgrIsRoot = false;
-} 
+}
