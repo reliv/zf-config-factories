@@ -58,6 +58,11 @@ class Module
                 'abstract_factories' => [
                     'Reliv\FactoriesAsConfiguration\ControllerPluginFactory'
                 ],
+            ],
+            'input_filters' => [
+                'abstract_factories' => [
+                    'Reliv\FactoriesAsConfiguration\InputFilterFactory'
+                ],
             ]
         ];
     }
