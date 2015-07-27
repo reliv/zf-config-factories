@@ -1,6 +1,6 @@
 <?php
 /**
- * View Helper Config Driven Abstract Factory
+ * Input Filter Config Driven Abstract Factory
  *
  * PHP version 5
  *
@@ -18,7 +18,7 @@ namespace Reliv\FactoriesAsConfiguration;
 use Zend\ServiceManager\AbstractFactoryInterface;
 
 /**
- * View Helper Config Driven Abstract Factory
+ * Input Filter Config Driven Abstract Factory
  *
  * PHP version 5
  *
