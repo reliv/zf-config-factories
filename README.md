@@ -1,6 +1,6 @@
 Zend Framework Config Factories
 ======
-Factory classes are tedious. Factory closures have performance issues. Try this module to use factories config arrays instead.
+Factory classes are tedious. Factory closures have performance issues. Try this module to use factory config arrays instead. This module is built for high performance and ease of use.
 
 Example of constructor injection with the service name being the same as its class name:
 ```php
