@@ -11,7 +11,7 @@ install:
 script:
   - find . -type d \( -path ./vendor -o -path ./test \) -prune -o -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
 #  - ./vendor/bin/phpunit
-  - ./vendor/bin/phpcs --standard=PSR2 --ignore=vendor,test,config,data,autoload_classmap.php --extensions=php ./
+#  - ./vendor/bin/phpcs --standard=PSR2 --ignore=vendor,test,config,data,autoload_classmap.php --extensions=php ./
 cache:
   directories:
     - $HOME/.composer/cache
