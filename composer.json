@@ -1,6 +1,6 @@
 {
   "name": "reliv/zf2-factories-as-configuration",
-  "description": "Inject dependencies into ZF2 services via configuration rather than factory classes.",
+  "description": "Wire up dependancies via config arrays in ZF2. Forget factory classes or closures.",
   "type": "library",
   "license": "BSD",
   "keywords": [
@@ -8,7 +8,9 @@
     "config",
     "factories",
     "service",
-    "manager"
+    "manager",
+    "dependancy",
+    "injection"
   ],
   "homepage": "https://github.com/rodmcnew",
   "authors": [
