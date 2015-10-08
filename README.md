@@ -5,8 +5,8 @@ Install this module to be able to inject dependencies into ZF2 services via conf
 This module has been in-use in production apps since the ZF 2.3 release. Developers find it easier to use than factory classes.
 
 In large apps with many modules and services:
-* This method is faster than factory classes because because your app doesn't need to instantiate a factory for each service at runtime.
-* This method is MUCH faster than factory closures because ZF2 parses all factory closures every request, even unused ones!
+* Config factories are faster than factory classes because because your app doesn't need to instantiate a factory for each service at runtime.
+* Config factories are MUCH faster than factory closures because ZF2 parses all factory closures every request, even unused ones!
 
 Example of constructor injection with the service name being the same as its class name:
 ```php
