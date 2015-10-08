@@ -207,7 +207,7 @@ class ServiceFactory implements AbstractFactoryInterface
     /**
      * Instantiate a class with the given arguments and return it.
      *
-     * Here is why this function has 30 case statments:
+     * This function has 30 case statments to increase performance.
      * Instantiation using reflection takes 70% more time than standard
      * instantiation. We fall back to reflection only if a class has more
      * than 30 constructor arguments which should never happen.
