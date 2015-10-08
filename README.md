@@ -1,6 +1,6 @@
 Inject dependencies into ZF2 services via configuration rather than factory classes.
 ======
-This module has been in-use in production apps almost since the ZF 2.3 release. Developers find it easier to use than factory classes.
+This module has been in-use in production apps since the ZF 2.3 release. Developers find it easier to use than factory classes.
 
 * This method is faster than factory classes because because your app doesn't need to instantiate a factory for each service at runtime.
 * This method is MUCH faster than factory closures in large apps because all factory closures are parsed at runtime, even when they are not used. Factories closures should not be used in large ZF apps due to their performance issues.
