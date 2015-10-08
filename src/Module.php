@@ -41,27 +41,27 @@ class Module
         return [
             'service_manager' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ServiceFactory'
+                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ServiceFactory'
                 ],
             ],
             'controllers' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ControllerFactory'
+                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ControllerFactory'
                 ],
             ],
             'view_helpers' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ViewHelperFactory'
+                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ViewHelperFactory'
                 ],
             ],
             'controller_plugins' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ControllerPluginFactory'
+                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ControllerPluginFactory'
                 ],
             ],
             'input_filters' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\InputFilterFactory'
+                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\InputFilterFactory'
                 ],
             ]
         ];

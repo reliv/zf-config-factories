@@ -1,24 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit>
-    <php>
-        <ini name="memory_limit" value="2G"/>
-    </php>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./</directory>
-            <exclude>
-                <directory>vendor/</directory>
-                <directory>test/</directory>
-                <directory>src/Exception/</directory>
-                <directory>src/Http/</directory>
-                <file>src/Plugin/PluginInterface.php</file>
-            </exclude>
-        </whitelist>
-    </filter>
+<phpunit bootstrap="./vendor/autoload.php" colors="true">
     <testsuites>
-        <testsuite name="rcm">
-            <directory>test</directory>
+        <testsuite name="Config Factory Tests">
+            <directory>./test</directory>
         </testsuite>
     </testsuites>
 </phpunit>

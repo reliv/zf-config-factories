@@ -1,6 +1,6 @@
 <?php
 /**
- * Controller Plugin Config Driven Abstract Factory
+ * Controller Config Driven Abstract Factory
  *
  * PHP version 5
  *
@@ -13,12 +13,13 @@
  * @link      https://github.com/reliv
  */
 
-namespace Reliv\FactoriesAsConfiguration;
+namespace Reliv\FactoriesAsConfiguration\ConcreteFactory;
 
+use Reliv\FactoriesAsConfiguration\AbstractConfigFactory;
 use Zend\ServiceManager\AbstractFactoryInterface;
 
 /**
- * ControllerPlugin Config Driven Abstract Factory
+ * Controller Config Driven Abstract Factory
  *
  * PHP version 5
  *
@@ -30,15 +31,10 @@ use Zend\ServiceManager\AbstractFactoryInterface;
  * @version   Release: <package_version>
  * @link      https://github.com/reliv
  */
-class ControllerPluginFactory extends ServiceFactory implements AbstractFactoryInterface
+class ControllerFactory extends AbstractConfigFactory implements AbstractFactoryInterface
 {
     /**
      * @var string the config key of the target service manager
      */
-    protected $serviceMgrKey = 'controller_plugins';
-
-    /**
-     * @var bool used know it we must look for the real service locator inside the given service locator
-     */
-    protected $serviceMgrIsRoot = false;
+    protected $serviceMgrKey = 'controllers';
 }
