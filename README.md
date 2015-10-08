@@ -20,7 +20,7 @@ Example usage with all options:
 // in module.config.php
 'controllers' => [
 
-    // This is a special config key that RmFactoriesAsConfiguration reads.
+    // This is a special config key that zf2-factories-as-configuration reads.
     'config_factories' => [
     
         // This is the name of the service.
