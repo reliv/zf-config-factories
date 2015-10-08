@@ -1,7 +1,6 @@
 Zend Framework Config Factories
 ======
-When practicting dependency injection in ZF2:
-* Factory classes are tedious.
+When practicting dependency injection in ZF2:* Factory classes are tedious.
 * Factory closures have performance issues.
 
 Try this module to use factories config arrays instead.
