@@ -1,5 +1,7 @@
-Inject dependencies into ZF2 services via configuration rather than factory classes.
+ZF Config Factories
 ======
+Inject dependencies into ZF2 services via configuration rather than factory classes.
+
 This module has been in-use in production apps since the ZF 2.3 release. Developers find it easier to use than factory classes.
 
 In large apps with many modules and services:
