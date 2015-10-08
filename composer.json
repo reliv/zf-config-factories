@@ -10,7 +10,13 @@
     "service",
     "manager",
     "dependancy",
-    "injection"
+    "injection",
+    "zend",
+    "framework",
+    "DI",
+    "container",
+    "configuration",
+    "closures"
   ],
   "homepage": "https://github.com/rodmcnew",
   "authors": [
