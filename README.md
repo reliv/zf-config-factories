@@ -1,6 +1,6 @@
 ZF Config Factories
 ======
-Install this module to be able to inject dependencies into ZF2 services via configuration rather than factory classes.
+Install this ZF2 module to be able to inject dependencies into ZF2 services via configuration rather than factory classes.
 
 This module has been in-use in production apps since the ZF 2.3 release. Developers find it easier to use than factory classes.
 
