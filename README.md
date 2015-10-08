@@ -4,7 +4,7 @@ This module has been in-use in production apps since the ZF 2.3 release. Develop
 
 In large apps with many modules and services:
 * This method is faster than factory classes because because your app doesn't need to instantiate a factory for each service at runtime.
-* This method is MUCH faster than factory closures because all factory closures are parsed each time ZF2 handles a request.
+* This method is MUCH faster than factory closures because all factory closures are parsed each time ZF2 handles a request, even unused ones!
 
 Example of constructor injection with the service name being the same as its class name:
 ```php
