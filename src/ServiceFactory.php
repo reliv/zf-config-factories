@@ -210,7 +210,8 @@ class ServiceFactory implements AbstractFactoryInterface
      * This function has 30 case statments to increase performance.
      * Instantiation using reflection takes 70% more time than standard
      * instantiation. We fall back to reflection only if a class has more
-     * than 30 constructor arguments which should never happen.
+     * than 30 constructor arguments. Classes with more than 30 constructor
+     * arguments should be extreamly rare.
      *
      * @param string $className the class name to instantiate
      * @param array  $arguments the arguments to pass in
