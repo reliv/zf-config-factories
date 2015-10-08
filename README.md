@@ -4,24 +4,13 @@ Inject dependencies into ZF2 services via configuration rather than factory clas
 Example of constructor injection with the service name being the same as its class name:
 ```php
 'service_manager' => [
-
     'config_factories' => [
-    
         'App\Email\EmailService' => [
             'arguments' => [
                 'Name\Of\A\Service\I\Want\To\Inject',
                 'Name\Of\A\AnotherService\I\Want\To\Inject'
             ],
         ]
-        
-    ]
-    
-    'invokables' => [
-        //... Other ZF2 services here
-    ],
-
-    'factories' => [
-        //... Other ZF2 services here
     ]
 ]
 ```
