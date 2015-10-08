@@ -1,4 +1,4 @@
-ZF Config Factories
+ZF2 Config Factories
 ======
 Install this ZF2 module to be able to inject dependencies into ZF2 services via config rather than factory classes or closures.
 
