@@ -31,7 +31,7 @@ Example usage with all options:
         'EmailTemplateApiController' => [
         
             /**
-             * This is the service's  class name.
+             * This is the service's class name.
              * Not required if the service's name is the same as its class name.
              */
             'class' => 'App\Controller\EmailTemplateApiController',
