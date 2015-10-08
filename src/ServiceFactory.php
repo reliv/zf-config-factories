@@ -205,11 +205,12 @@ class ServiceFactory implements AbstractFactoryInterface
     }
 
     /**
-     * Instantiate and a class with the given arguments and return it.
+     * Instantiate a class with the given arguments and return it.
      *
-     * Note: Instantiation using reflection takes 70% more time than standard
-     * instantiation so we only use reflection on classes that take over 30
-     * arguments in their constructors.
+     * Here is why this function has 30 case statments:
+     * Instantiation using reflection takes 70% more time than standard
+     * instantiation. We fall back to reflection only if a class has more
+     * than 30 constructor arguments which should never happen.
      *
      * @param string $className the class name to instantiate
      * @param array  $arguments the arguments to pass in
