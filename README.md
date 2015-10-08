@@ -1,6 +1,6 @@
 ZF2 Config Factories
 ======
-This is a Zend Framework 2 module. Install this to be able to inject dependencies into services via config rather than factory classes or closures.
+Install this to be able to inject dependencies into services via config rather than factory classes or closures. This is a Zend Framework 2 module.
 
 * Config factories are faster than factory classes because because your app doesn't need to instantiate a factory for each service at runtime.
 * Config factories are MUCH faster than factory closures because ZF2 parses all unused factory closures every request. We have seen ZF2 apps with 200+ factory closures where the closures caused major performance issues.
