@@ -18,6 +18,7 @@ namespace Reliv\FactoriesAsConfiguration;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+
 /**
  * Config Driven Abstract Factory
  *
@@ -193,8 +194,10 @@ class ServiceFactory implements AbstractFactoryInterface
         $config = $serviceMgr->get('config');
         $this->configFactories = [];
         if (isset($config[$this->serviceMgrKey][$this->configKey])) {
-            foreach ($config[$this->serviceMgrKey][$this->configKey] as $key =>
-                $value) {
+            foreach (
+                $config[$this->serviceMgrKey][$this->configKey] as $key =>
+                $value
+            ) {
                 $this->configFactories[$this->canonicalizeName($key)]
                     = array_merge($value, ['name' => $key]);
             }
@@ -249,6 +252,63 @@ class ServiceFactory implements AbstractFactoryInterface
                 break;
             case 11:
                 return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10]);
+                break;
+            case 12:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11]);
+                break;
+            case 13:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12]);
+                break;
+            case 14:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13]);
+                break;
+            case 15:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14]);
+                break;
+            case 16:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15]);
+                break;
+            case 17:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16]);
+                break;
+            case 18:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17]);
+                break;
+            case 19:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18]);
+                break;
+            case 20:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19]);
+                break;
+            case 21:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20]);
+                break;
+            case 22:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21]);
+                break;
+            case 23:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22]);
+                break;
+            case 24:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23]);
+                break;
+            case 25:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23], $a[24]);
+                break;
+            case 26:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23], $a[24], $a[25]);
+                break;
+            case 27:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23], $a[24], $a[25], $a[26]);
+                break;
+            case 28:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23], $a[24], $a[25], $a[26], $a[27]);
+                break;
+            case 29:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23], $a[24], $a[25], $a[26], $a[27], $a[28]);
+                break;
+            case 30:
+                return new $className($a[0], $a[1], $a[2], $a[3], $a[4], $a[5], $a[6], $a[7], $a[8], $a[9], $a[10], $a[11], $a[12], $a[13], $a[14], $a[15], $a[16], $a[17], $a[18], $a[19], $a[20], $a[21], $a[22], $a[23], $a[24], $a[25], $a[26], $a[27], $a[28], $a[29]);
                 break;
             default:
                 $serviceClass = new \ReflectionClass($className);
