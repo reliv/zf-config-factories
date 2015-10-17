@@ -1,6 +1,6 @@
 <?php
 
-namespace Reliv\FactoriesAsConfiguration\Test;
+namespace Reliv\ZfConfigFactories\Test;
 
 class MockService
 {

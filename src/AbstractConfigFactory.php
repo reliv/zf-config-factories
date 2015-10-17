@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category  ZF2 Modules
- * @package   RmFactoriesAsConfiguration
+ * @package   RmZfConfigFactories
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License
@@ -13,9 +13,9 @@
  * @link      https://github.com/reliv
  */
 
-namespace Reliv\FactoriesAsConfiguration;
+namespace Reliv\ZfConfigFactories;
 
-use Reliv\FactoriesAsConfiguration\Helper\Instantiator;
+use Reliv\ZfConfigFactories\Helper\Instantiator;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -25,7 +25,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * PHP version 5
  *
  * @category  ZF2 Modules
- * @package   RmFactoriesAsConfiguration
+ * @package   RmZfConfigFactories
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License

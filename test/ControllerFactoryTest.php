@@ -1,15 +1,15 @@
 <?php
 
-namespace Reliv\FactoriesAsConfiguration\Test;
+namespace Reliv\ZfConfigFactories\Test;
 
-use Reliv\FactoriesAsConfiguration\ConcreteFactory\ControllerFactory;
+use Reliv\ZfConfigFactories\ConcreteFactory\ControllerFactory;
 
 /**
  * Class ControllerFactoryTest
- * @package Reliv\FactoriesAsConfiguration\Test
- * @covers Reliv\FactoriesAsConfiguration\ConcreteFactory\ControllerFactory
- * @covers Reliv\FactoriesAsConfiguration\AbstractConfigFactory
- * @covers Reliv\FactoriesAsConfiguration\Helper\Instantiator
+ * @package Reliv\ZfConfigFactories\Test
+ * @covers Reliv\ZfConfigFactories\ConcreteFactory\ControllerFactory
+ * @covers Reliv\ZfConfigFactories\AbstractConfigFactory
+ * @covers Reliv\ZfConfigFactories\Helper\Instantiator
  */
 class ControllerFactoryTest extends ServiceFactoryTest
 {

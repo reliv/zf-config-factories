@@ -34,8 +34,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Reliv\\FactoriesAsConfiguration\\": "src/",
-      "Reliv\\FactoriesAsConfiguration\\Test\\": "test/"
+      "Reliv\\ZfConfigFactories\\": "src/",
+      "Reliv\\ZfConfigFactories\\Test\\": "test/"
     }
   }
 }

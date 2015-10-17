@@ -13,7 +13,7 @@
  * @version   GIT: <git_id>
  */
 
-namespace Reliv\FactoriesAsConfiguration;
+namespace Reliv\ZfConfigFactories;
 
 /**
  * ZF2 Module Config.  Required by ZF2
@@ -41,27 +41,27 @@ class Module
         return [
             'service_manager' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ServiceFactory'
+                    'Reliv\ZfConfigFactories\ConcreteFactory\ServiceFactory'
                 ],
             ],
             'controllers' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ControllerFactory'
+                    'Reliv\ZfConfigFactories\ConcreteFactory\ControllerFactory'
                 ],
             ],
             'view_helpers' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ViewHelperFactory'
+                    'Reliv\ZfConfigFactories\ConcreteFactory\ViewHelperFactory'
                 ],
             ],
             'controller_plugins' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\ControllerPluginFactory'
+                    'Reliv\ZfConfigFactories\ConcreteFactory\ControllerPluginFactory'
                 ],
             ],
             'input_filters' => [
                 'abstract_factories' => [
-                    'Reliv\FactoriesAsConfiguration\ConcreteFactory\InputFilterFactory'
+                    'Reliv\ZfConfigFactories\ConcreteFactory\InputFilterFactory'
                 ],
             ]
         ];

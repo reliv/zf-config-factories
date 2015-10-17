@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category  ZF2 Modules
- * @package   RmFactoriesAsConfiguration
+ * @package   RmZfConfigFactories
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License
@@ -13,9 +13,9 @@
  * @link      https://github.com/reliv
  */
 
-namespace Reliv\FactoriesAsConfiguration\ConcreteFactory;
+namespace Reliv\ZfConfigFactories\ConcreteFactory;
 
-use Reliv\FactoriesAsConfiguration\AbstractConfigFactory;
+use Reliv\ZfConfigFactories\AbstractConfigFactory;
 use Zend\ServiceManager\AbstractFactoryInterface;
 
 /**
@@ -24,7 +24,7 @@ use Zend\ServiceManager\AbstractFactoryInterface;
  * PHP version 5
  *
  * @category  ZF2 Modules
- * @package   RmFactoriesAsConfiguration
+ * @package   RmZfConfigFactories
  * @author    Rod Mcnew
  * @copyright 2014 Rod Mcnew
  * @license   License.txt New BSD License

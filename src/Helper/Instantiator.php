@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Reliv\FactoriesAsConfiguration\Helper;
+namespace Reliv\ZfConfigFactories\Helper;
 
 /**
  * Class Instantiator This class helps instantiate classes
  * that have an unknown number of constructor arguments.
  *
- * @package Reliv\FactoriesAsConfiguration
+ * @package Reliv\ZfConfigFactories
  */
 class Instantiator
 {

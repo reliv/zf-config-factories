@@ -1,15 +1,15 @@
 <?php
 
-namespace Reliv\FactoriesAsConfiguration\Test;
+namespace Reliv\ZfConfigFactories\Test;
 
-use Reliv\FactoriesAsConfiguration\ConcreteFactory\ServiceFactory;
+use Reliv\ZfConfigFactories\ConcreteFactory\ServiceFactory;
 
 /**
  * Class ServiceFactoryTest
- * @package Reliv\FactoriesAsConfiguration\Test
- * @covers Reliv\FactoriesAsConfiguration\ConcreteFactory\ServiceFactory
- * @covers Reliv\FactoriesAsConfiguration\AbstractConfigFactory
- * @covers Reliv\FactoriesAsConfiguration\Helper\Instantiator
+ * @package Reliv\ZfConfigFactories\Test
+ * @covers Reliv\ZfConfigFactories\ConcreteFactory\ServiceFactory
+ * @covers Reliv\ZfConfigFactories\AbstractConfigFactory
+ * @covers Reliv\ZfConfigFactories\Helper\Instantiator
  */
 class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -77,7 +77,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             [
                 $this->serviceMgrConfigName => [
                     'config_factories' => [
-                        'Reliv\FactoriesAsConfiguration\Test\MockService' => []
+                        'Reliv\ZfConfigFactories\Test\MockService' => []
                     ]
                 ]
             ]
@@ -87,7 +87,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             $this->unit->createServiceWithName(
                 $serviceLocator,
                 'relivfactoriesasconfigurationtestmockservice',
-                'Reliv\FactoriesAsConfiguration\Test\MockService'
+                'Reliv\ZfConfigFactories\Test\MockService'
             ) instanceof MockService
         );
     }
@@ -101,7 +101,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             [
                 $this->serviceMgrConfigName => [
                     'config_factories' => [
-                        'Reliv\FactoriesAsConfiguration\Test\MockService' => [
+                        'Reliv\ZfConfigFactories\Test\MockService' => [
                             'calls' => [
                                 'set1' => ['hi', 'hiagain'],
                                 'set2' => ['aloha']
@@ -125,7 +125,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $service = $this->unit->createServiceWithName(
             $serviceLocator,
             'relivfactoriesasconfigurationtestmockservice',
-            'Reliv\FactoriesAsConfiguration\Test\MockService'
+            'Reliv\ZfConfigFactories\Test\MockService'
         );
         $this->assertTrue(
             $service instanceof MockService
@@ -141,7 +141,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
                 $this->serviceMgrConfigName => [
                     'config_factories' => [
                         'MockService' => [
-                            'class' => 'Reliv\FactoriesAsConfiguration\Test\MockService'
+                            'class' => 'Reliv\ZfConfigFactories\Test\MockService'
                         ]
                     ]
                 ]
@@ -172,7 +172,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
                 [
                     $this->serviceMgrConfigName => [
                         'config_factories' => [
-                            'Reliv\FactoriesAsConfiguration\Test\MockService' => [
+                            'Reliv\ZfConfigFactories\Test\MockService' => [
                                 'arguments' => $args
                             ]
                         ]
@@ -193,7 +193,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             $service = $this->unit->createServiceWithName(
                 $serviceLocator,
                 'relivfactoriesasconfigurationtestmockservice',
-                'Reliv\FactoriesAsConfiguration\Test\MockService'
+                'Reliv\ZfConfigFactories\Test\MockService'
             );
             $this->assertTrue($service instanceof MockService);
             $this->assertEquals($services, $service->getConstructorArgs());
