@@ -86,7 +86,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(
             $this->unit->createServiceWithName(
                 $serviceLocator,
-                'relivfactoriesasconfigurationtestmockservice',
+                'relivzfconfigfactoriestestmockservice',
                 'Reliv\ZfConfigFactories\Test\MockService'
             ) instanceof MockService
         );
@@ -124,7 +124,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
         $service = $this->unit->createServiceWithName(
             $serviceLocator,
-            'relivfactoriesasconfigurationtestmockservice',
+            'relivzfconfigfactoriestestmockservice',
             'Reliv\ZfConfigFactories\Test\MockService'
         );
         $this->assertTrue(
@@ -192,7 +192,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
             $service = $this->unit->createServiceWithName(
                 $serviceLocator,
-                'relivfactoriesasconfigurationtestmockservice',
+                'relivzfconfigfactoriestestmockservice',
                 'Reliv\ZfConfigFactories\Test\MockService'
             );
             $this->assertTrue($service instanceof MockService);
