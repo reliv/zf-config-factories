@@ -21,7 +21,7 @@ Example of constructor injection with the service name being the same as its cla
 Example usage with all options:
 ```php
 // in module.config.php
-'controllers' => [
+'service_manager' => [
 
     // This is a special config key that zf-config-factories reads.
     'config_factories' => [
