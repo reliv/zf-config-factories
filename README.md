@@ -23,7 +23,7 @@ Example usage with all options:
 // in module.config.php
 'controllers' => [
 
-    // This is a special config key that zf2-config-factories reads.
+    // This is a special config key that zf-config-factories reads.
     'config_factories' => [
     
         // This is the name of the service.
