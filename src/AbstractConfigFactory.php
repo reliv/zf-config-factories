@@ -85,6 +85,11 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         $name,
         $requestedName
     ) {
+        //Handle service names with @'s before them.
+        if (substr($name, 0, 1) == '@') {
+            $name = substr($name, 1);
+        }
+
         if (!$this->serviceMgrIsRoot) {
             $serviceMgr = $serviceMgr->getServiceLocator();
         }
@@ -106,6 +111,11 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         $name,
         $requestedName
     ) {
+        //Handle service names with @'s before them.
+        if (substr($name, 0, 1) == '@') {
+            $name = substr($name, 1);
+        }
+
         if (!$this->serviceMgrIsRoot) {
             $serviceMgr = $serviceMgr->getServiceLocator();
         }
@@ -199,6 +209,10 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         $this->configFactories = [];
         if (isset($config[$this->serviceMgrKey][$this->configKey])) {
             foreach ($config[$this->serviceMgrKey][$this->configKey] as $key => $value) {
+                //Handle service names with @'s before them.
+                if (substr($key, 0, 1) == '@') {
+                    $key = substr($key, 1);
+                }
                 $this->configFactories[$this->canonicalizeName($key)]
                     = array_merge($value, ['name' => $key]);
             }
