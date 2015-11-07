@@ -55,7 +55,7 @@ Example usage with all options:
              * Not required if your service has no factory.
              */ 
             'factory' => [
-                ['Factories\Service\Name','methodInFactoryToCall']
+                ['Factories\Service\Name', 'methodInFactoryToCall']
             ]
         ]
     ],
