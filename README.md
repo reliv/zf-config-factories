@@ -50,7 +50,7 @@ Example usage with all options:
             ],
             
             /** 
-             * If your service is built with a factory, register your factory its self a service
+             * If your service is built with a factory, register your factory its self as service
              * and call it like this.
              * Not required if your service has no factory.
              */ 
