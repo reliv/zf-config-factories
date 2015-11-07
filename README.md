@@ -27,7 +27,7 @@ Example usage with all options:
     'config_factories' => [
     
         // This is the name of the service.
-        'EmailTemplateApiController' => [
+        'EmailTemplateApi' => [
         
             /**
              * This is the service's class name.
@@ -55,7 +55,7 @@ Example usage with all options:
              * Not required if your service has no factory.
              */ 
             'factory' => [
-                ['FunModule\FactoryServiceName', 'getMyFunService']
+                ['FunModule\FactoryServiceName', 'createEmailTemplateApi']
             ]
         ]
     ],
