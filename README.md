@@ -51,7 +51,7 @@ Example usage with all options:
             
             /** 
              * If your service is built with a factory, register your factory its self as service
-             * and call it like this.
+             * and call it like this. This is how factories work in Symfony.
              * Not required if your service has no factory.
              */ 
             'factory' => [
