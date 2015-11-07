@@ -122,6 +122,14 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
         $config = $this->getFactoryConfig($serviceMgr, $name);
 
+        if (isset($config['factory'])) {
+            $factoryServiceName = $config['factory'][0];
+            $factoryMethod = $config['factory'][1];
+            $factory = $serviceMgr->get($factoryServiceName);
+
+            return $factory->$factoryMethod();
+        }
+
         /**
          * The 'class' key is optional. If it is not in the config, we assume
          * the service's name is its class name
