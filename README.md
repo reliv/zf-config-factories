@@ -55,7 +55,7 @@ Example usage with all options:
              * Not required if your service has no factory.
              */ 
             'factory' => [
-                ['FunModule\FactoryServiceName', 'methodInFactoryToCall']
+                ['FunModule\FactoryServiceName', 'getMyFunService']
             ]
         ]
     ],
