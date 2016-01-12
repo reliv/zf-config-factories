@@ -46,7 +46,7 @@ Example usage with all options:
              * Not required if your service has no setters.
              */ 
             'calls' => [
-                ['setFunService', ['Name\Of\Another\Service\I\Want\To\Inject']]
+                ['setFunService', ['Name\Of\Another\Service\I\Want\To\Inject']],
                 ['setAnotherFunService', ['Name\Of\Another\Service\I\Want\To\Inject']]
             ],
             
