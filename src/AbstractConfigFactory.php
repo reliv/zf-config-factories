@@ -144,7 +144,9 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         }
 
         if (isset($config['calls'])) {
-            foreach ($config['calls'] as $methodName => $arguments) {
+            foreach ($config['calls'] as $arguments) {
+                $methodName = $arguments[0];
+                $arguments = $arguments[1];
                 call_user_func_array(
                     [$service, $methodName],
                     $this->fetchServices($serviceMgr, $arguments)
