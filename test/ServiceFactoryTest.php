@@ -103,8 +103,8 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
                     'config_factories' => [
                         'Reliv\ZfConfigFactories\Test\MockService' => [
                             'calls' => [
-                                'set1' => ['hi', 'hiagain'],
-                                'set2' => ['aloha']
+                                ['set1' , ['hi', 'hiagain']],
+                                ['set2' , ['aloha']]
                             ]
                         ]
                     ]
