@@ -2,7 +2,7 @@
 
 Zend Framework Config Factories
 ======
-Factory classes are tedious. Factory closures have performance issues. Try this module to use factory config arrays instead. This module is built for high performance and ease of use. This is basicly a port of the Symfony 2 DI configuration system http://symfony.com/doc/current/components/dependency_injection/configurators.html.
+Factory classes are tedious. Factory closures have performance issues. Try this module to use factory config arrays instead. This module is built for high performance and ease of use. Config structure was copied from the Symfony 2 DI configuration system at http://symfony.com/doc/current/components/dependency_injection/configurators.html.
 
 ```php
 // Example of constructor injection with the service name being the same as its class name:
