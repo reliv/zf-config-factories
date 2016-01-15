@@ -38,6 +38,7 @@ Example usage with all options:
             /**
              * This is an array of service names that the class's constructor takes.
              * Not required if the service's constructor takes no arguments.
+             * Not compatible with the 'factoris' option (see below)
              */
             'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
             
@@ -54,6 +55,7 @@ Example usage with all options:
              * If your service is built with a factory, register your factory its self as service
              * and call it like this. This is how factories work in Symfony.
              * Not required if your service has no factory.
+             * Not compatible with the 'arguments' option (see above)
              */ 
             'factory' => [
                 ['FunModule\FactoryServiceName', 'createEmailTemplateApi']
