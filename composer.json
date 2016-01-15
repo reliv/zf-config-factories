@@ -1,6 +1,6 @@
 {
   "name": "reliv/zf-config-factories",
-  "description": "Wire up dependancies via config arrays in the ZF2 service manager. Forget factory classes or closures.",
+  "description": "Configurable DI for the ZF service manager. Moduled after Symfony 2's DI config files.",
   "type": "library",
   "license": "BSD",
   "keywords": [
