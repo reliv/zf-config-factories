@@ -38,7 +38,7 @@ Example usage with all options:
             /**
              * This is an array of service names that the class's constructor takes.
              * Not required if the service's constructor takes no arguments.
-             * Not compatible with the 'factoris' option (see below)
+             * Not compatible with the 'factory' option (see below)
              */
             'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
             
