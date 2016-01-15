@@ -1,6 +1,6 @@
 {
   "name": "reliv/zf-config-factories",
-  "description": "Configurable DI for the ZF service manager. Moduled after Symfony 2's DI config files.",
+  "description": "Configurable DI for the ZF service manager. Modeled after Symfony 2's DI config files.",
   "type": "library",
   "license": "BSD",
   "keywords": [
