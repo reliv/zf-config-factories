@@ -2,7 +2,7 @@
 
 Zend Framework Config Factories
 ======
-Factory classes are tedious. Factory closures have performance issues. Try this module to use factory config arrays instead. Config structure was modeled after Symfony 2 services.yml files.
+Factory classes are tedious. Factory closures have performance issues. Try this module to use factory config arrays instead. The config structure was modeled after Symfony 2 services.yml files.
 
 ```php
 // Example of constructor injection with the service name being the same as its class name:
