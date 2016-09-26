@@ -18,6 +18,7 @@ namespace Reliv\ZfConfigFactories;
 use Reliv\ZfConfigFactories\Helper\Instantiator;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
 
 /**
  * Config Driven Abstract Factory
@@ -56,23 +57,40 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
     protected $configFactories = null;
 
     /**
-     * @var array map of characters to be replaced through strtr
-     */
-    protected $canonicalNamesReplacements = [
-        '-' => '',
-        '_' => '',
-        ' ' => '',
-        '\\' => '',
-        '/' => ''
-    ];
-
-    /**
      * @var Instantiator | null
      */
     protected $instantiator;
 
     /**
+     * (For ZF3 Support)
+     * @TODO put the code from canCreateServiceWithName in here to avoid the extra call in zf3
+     *
+     * @param ContainerInterface $container
+     * @param $name
+     * @return bool
+     */
+    public function canCreate(ContainerInterface $container, $name)
+    {
+        return $this->canCreateServiceWithName($container, $name, $name);
+    }
+
+    /**
+     * (For ZF3 Support)
+     * @TODO put the code from createServiceWithName in here to avoid the extra call in zf3
+     *
+     * @param ContainerInterface $container
+     * @param $name
+     * @param array $options
+     * @return mixed
+     */
+    public function __invoke(ContainerInterface $container, $name, array $options = null)
+    {
+        return $this->createServiceWithName($container, $name, $name);
+    }
+
+    /**
      * Determine if we can create a service with name
+     * (For ZF2 Support)
      *
      * @param ServiceLocatorInterface $serviceMgr
      * @param                         $name
@@ -94,6 +112,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
     /**
      * Create service with name
+     * (For ZF2 Support)
      *
      * @param ServiceLocatorInterface $serviceMgr
      * @param                         $name
@@ -209,24 +228,9 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         $this->configFactories = [];
         if (isset($config[$this->serviceMgrKey][$this->configKey])) {
             foreach ($config[$this->serviceMgrKey][$this->configKey] as $key => $value) {
-                $this->configFactories[$this->canonicalizeName($key)]
+                $this->configFactories[$key]
                     = array_merge($value, ['name' => $key]);
             }
         }
-    }
-
-    /**
-     * Canonicalize name
-     *
-     * @param  string $name
-     *
-     * @return string
-     */
-    protected function canonicalizeName($name)
-    {
-        // this is just for performance instead of using str_replace
-        return strtolower(
-            strtr($name, $this->canonicalNamesReplacements)
-        );
     }
 }

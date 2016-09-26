@@ -1,31 +1,9 @@
 <?php
 
-/**
- * Module Config For ZF2
- *
- * PHP version 5.3
- *
- * LICENSE: No License yet
- *
- * @author    Rod McNew
- * @copyright 2012 Rod Mcnew
- * @license   License.txt New BSD License
- * @version   GIT: <git_id>
- */
-
 namespace Reliv\ZfConfigFactories;
 
 /**
- * ZF2 Module Config.  Required by ZF2
- *
- * ZF2 requires a Module.php file to load up all the Module Dependencies.  This
- * file has been included as part of the ZF2 standards.
- *
- * @category  Reliv
- * @author    Rod McNew
- * @copyright 2012 Rod Mcnew
- * @license   License.txt New BSD License
- * @version   Release: 1.0
+ * Module for ZF2 and ZF3
  */
 class Module
 {
