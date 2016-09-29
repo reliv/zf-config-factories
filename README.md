@@ -65,6 +65,6 @@ Example usage with all options:
 ]
 ```
 
-Version 4.0 Announcement:
+Version 4 Announcement:
 - Dropped support for case-insensetive service names as ZF3 is dropping this feature. This improves performance.
 - Added support for ZF3 and zend-expressive
