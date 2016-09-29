@@ -1,7 +1,3 @@
-Version 4.0 Announcement:
-- Dropped support for case-insensetive service names as ZF3 is dropping this feature. This improves performance.
-- Added support for ZF3 and zend-expressive
-
 [![Build Status](https://travis-ci.org/reliv/zf-config-factories.svg?branch=master)](https://travis-ci.org/reliv/zf-config-factories)
 
 Zend Framework Config Factories
@@ -68,3 +64,7 @@ Example usage with all options:
     ],
 ]
 ```
+
+Version 4.0 Announcement:
+- Dropped support for case-insensetive service names as ZF3 is dropping this feature. This improves performance.
+- Added support for ZF3 and zend-expressive
