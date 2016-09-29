@@ -45,7 +45,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertTrue(
-            $this->unit->canCreateServiceWithName($serviceLocator, 'appemailemailservice', 'App\Email\EmailService')
+            $this->unit->canCreateServiceWithName($serviceLocator, 'App\Email\EmailService', 'App\Email\EmailService')
         );
     }
 
@@ -67,7 +67,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertFalse(
-            $this->unit->canCreateServiceWithName($serviceLocator, 'appemailotherservice', 'App\Email\OtherService')
+            $this->unit->canCreateServiceWithName($serviceLocator, 'NotApp\Email\EmailService', 'App\Email\OtherService')
         );
     }
 
@@ -86,7 +86,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(
             $this->unit->createServiceWithName(
                 $serviceLocator,
-                'relivzfconfigfactoriestestmockservice',
+                'Reliv\ZfConfigFactories\Test\MockService',
                 'Reliv\ZfConfigFactories\Test\MockService'
             ) instanceof MockService
         );
@@ -124,7 +124,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
         $service = $this->unit->createServiceWithName(
             $serviceLocator,
-            'relivzfconfigfactoriestestmockservice',
+            'Reliv\ZfConfigFactories\Test\MockService',
             'Reliv\ZfConfigFactories\Test\MockService'
         );
         $this->assertTrue(
@@ -151,7 +151,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(
             $this->unit->createServiceWithName(
                 $serviceLocator,
-                'mockservice',
+                'MockService',
                 'MockService'
             ) instanceof MockService
         );
@@ -192,7 +192,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
             $service = $this->unit->createServiceWithName(
                 $serviceLocator,
-                'relivzfconfigfactoriestestmockservice',
+                'Reliv\ZfConfigFactories\Test\MockService',
                 'Reliv\ZfConfigFactories\Test\MockService'
             );
             $this->assertTrue($service instanceof MockService);

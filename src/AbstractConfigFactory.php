@@ -107,7 +107,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
             $serviceMgr = $serviceMgr->getServiceLocator();
         }
 
-        return $this->getFactoryConfig($serviceMgr, $name) !== null;
+        return $this->getFactoryConfig($serviceMgr, $requestedName) !== null;
     }
 
     /**
@@ -129,7 +129,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
             $serviceMgr = $serviceMgr->getServiceLocator();
         }
 
-        $config = $this->getFactoryConfig($serviceMgr, $name);
+        $config = $this->getFactoryConfig($serviceMgr, $requestedName);
 
         if (isset($config['factory'])) {
             $factoryServiceName = $config['factory'][0];
