@@ -16,7 +16,7 @@ class ZendExpressiveModuleConfig
         return [
             'dependencies' => [
                 'abstract_factories' => [
-                    'Reliv\ZfConfigFactories\ConcreteFactory\DependenciesFactory'
+                    ConcreteFactory\DependenciesFactory::class
                 ],
             ],
         ];

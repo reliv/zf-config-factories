@@ -52,9 +52,9 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
     protected $configKey = 'config_factories';
 
     /**
-     * @var null | array map of canoncalized service name to factory configuration
+     * @var array cached config array
      */
-    protected $configFactories = null;
+    protected $config = null;
 
     /**
      * @var Instantiator | null
@@ -146,7 +146,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         if (isset($config['class'])) {
             $className = $config['class'];
         } else {
-            $className = $config['name'];
+            $className = $requestedName;
         }
 
         if (isset($config['arguments']) && count($config['arguments']) > 0) {
@@ -208,29 +208,18 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         ServiceLocatorInterface $serviceMgr,
         $serviceName
     ) {
-        if (!is_array($this->configFactories)) {
-            $this->buildFactoryConfig($serviceMgr);
-        }
 
-        return isset($this->configFactories[$serviceName])
-            ? $this->configFactories[$serviceName] : null;
-    }
-
-    /**
-     * Builds our array of factory configs keyed by canonicalized service names
-     *
-     * @param ServiceLocatorInterface $serviceMgr
-     */
-    public function buildFactoryConfig(ServiceLocatorInterface $serviceMgr)
-    {
-        $config = $serviceMgr->get('config');
-
-        $this->configFactories = [];
-        if (isset($config[$this->serviceMgrKey][$this->configKey])) {
-            foreach ($config[$this->serviceMgrKey][$this->configKey] as $key => $value) {
-                $this->configFactories[$key]
-                    = array_merge($value, ['name' => $key]);
+        if ($this->config === null && $serviceMgr->has('config')) {
+            $config = $serviceMgr->get('config');
+            if (isset($config[$this->serviceMgrKey][$this->configKey])) {
+                $this->config = $config[$this->serviceMgrKey][$this->configKey];
             }
         }
+
+        if (isset($this->config[$serviceName])) {
+            return $this->config[$serviceName];
+        }
+
+        return null;
     }
 }
