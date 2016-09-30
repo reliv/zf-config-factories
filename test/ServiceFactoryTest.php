@@ -112,13 +112,13 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $serviceLocator->expects($this->at(1))
-            ->method('get')
-            ->will($this->returnValue('hiservice'));
         $serviceLocator->expects($this->at(2))
             ->method('get')
-            ->will($this->returnValue('hiagainservice'));
+            ->will($this->returnValue('hiservice'));
         $serviceLocator->expects($this->at(3))
+            ->method('get')
+            ->will($this->returnValue('hiagainservice'));
+        $serviceLocator->expects($this->at(4))
             ->method('get')
             ->will($this->returnValue('alohaservice'));
 
@@ -166,7 +166,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $services = [];
         for ($i = 1; $i < 41; $i++) {
             $args[] = 'arg' . $i;
-            $services[] = 'service' . $i;
+            $services []= 'service' . $i;
             $this->setup();
             $serviceLocator = $this->buildServiceLocatorMock(
                 [
@@ -185,7 +185,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             }
 
             for ($ii = 1; $ii <= $i; $ii++) {
-                $serviceLocator->expects($this->at($ii))
+                $serviceLocator->expects($this->at($ii+1))
                     ->method('get')
                     ->will($this->returnValue('service' . $ii));
             }
@@ -214,6 +214,14 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         $serviceLocator->expects($this->at(0))
+            ->method('has')
+            ->will($this->returnValue(true));
+
+        $serviceLocator->expects($this->at(1))
+            ->method('get')
+            ->will($this->returnValue($willReturnConfig));
+
+        $serviceLocator->expects($this->at(1))
             ->method('get')
             ->will($this->returnValue($willReturnConfig));
 

@@ -131,6 +131,10 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
         $config = $this->getFactoryConfig($serviceMgr, $requestedName);
 
+//        if (!is_array($config)) {
+//            throw new \Exception('Service not found: ' . $requestedName);
+//        }
+
         if (isset($config['factory'])) {
             $factoryServiceName = $config['factory'][0];
             $factoryMethod = $config['factory'][1];
@@ -149,7 +153,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
             $className = $requestedName;
         }
 
-        if (isset($config['arguments']) && count($config['arguments']) > 0) {
+        if (isset($config['arguments'])) {
             if (!$this->instantiator) {
                 $this->instantiator = new Instantiator();
             }
@@ -208,7 +212,6 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         ServiceLocatorInterface $serviceMgr,
         $serviceName
     ) {
-
         if ($this->config === null && $serviceMgr->has('config')) {
             $config = $serviceMgr->get('config');
             if (isset($config[$this->serviceMgrKey][$this->configKey])) {
