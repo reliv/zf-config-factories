@@ -20,7 +20,7 @@ Factory classes are tedious. Factory closures have performance issues. Try this 
 
 Example usage with all options:
 ```php
-// in module.config.php
+// in module.config.php, use 'dependencies' instead of 'service_manager' if using Zend Expressive
 'service_manager' => [
 
     // This is a special config key that zf-config-factories reads.
