@@ -26,7 +26,7 @@ Example usage with all options:
     // This is a special config key that zf-config-factories reads.
     'config_factories' => [
     
-        // This is the name of the service.
+        // This is the name of the service that we are defining.
         'EmailTemplateApi' => [
         
             /**
