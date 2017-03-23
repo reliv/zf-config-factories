@@ -50,8 +50,18 @@ Example usage with all options:
                 ['setFunService', ['Name\Of\Another\Service\I\Want\To\Inject']],
                 ['setAnotherFunService', ['Name\Of\Another\Service\I\Want\To\Inject']]
             ],
-            
+
+            /**
+             * Zend-Expressive style factory which is an invokable class
+             * 
+             * Not required if your service has no factory.
+             * Not compatible with the 'arguments' option (see above)
+             */ 
+            'factory' => 'FunModule\Factory\Class\Name',
+
             /** 
+             * Symfony style factory that is a service itself.
+             *
              * If your service is built with a factory, register your factory its self as service
              * and call it like this. This is how factories work in Symfony.
              * Not required if your service has no factory.
