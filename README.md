@@ -62,8 +62,6 @@ Example usage with all options:
             /** 
              * Symfony style factory that is a service itself.
              *
-             * If your service is built with a factory, register your factory its self as service
-             * and call it like this. This is how factories work in Symfony.
              * Not required if your service has no factory.
              * Not compatible with the 'arguments' option (see above)
              */ 
