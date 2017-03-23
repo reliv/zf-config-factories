@@ -57,7 +57,7 @@ Example usage with all options:
              * Not required if your service has no factory.
              * Not compatible with the 'arguments' option (see above)
              */ 
-            'factory' => 'FunModule\Factory\Class\Name',
+            'factory' => 'FunModule\FactoryClassName',
 
             /** 
              * Symfony style factory that is a service itself.
