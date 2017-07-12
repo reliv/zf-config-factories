@@ -115,10 +115,10 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
      * (For ZF2 Support)
      *
      * @param ServiceLocatorInterface $serviceMgr
-     * @param                         $name
-     * @param                         $requestedName
-     *
-     * @return mixed
+     * @param $name
+     * @param $requestedName
+     * @return Object
+     * @throws \Exception
      */
     public function createServiceWithName(
         ServiceLocatorInterface $serviceMgr,
@@ -145,7 +145,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
                 return $factory->$factoryMethod();
             }
 
-            //Zend Expresssive style factories that are invokable classes
+            //Zend Expressive style factories that are invokable classes
             if (class_exists($config['factory'])) {
                 $factoryClass = $config['factory'];
                 $factory = new $factoryClass();
@@ -195,7 +195,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
      * Converts an service names to to an array of their corresponding services
      *
      * @param ServiceLocatorInterface $serviceMgr
-     * @param Array $argumentServiceNames
+     * @param array $argumentServiceNames
      *
      * @return array
      */
@@ -207,10 +207,8 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         foreach ($argumentServiceNames as $serviceName) {
             if (!is_array($serviceName)) {
                 $services[] = $serviceMgr->get($serviceName);
-            } else {
-                if (array_key_exists('literal', $serviceName)) {
-                    $services[] = $serviceName['literal'];
-                }
+            } else if (array_key_exists('literal', $serviceName)) {
+                $services[] = $serviceName['literal'];
             }
         }
 
