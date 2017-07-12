@@ -20,7 +20,7 @@ Factory classes are tedious. Factory closures have performance issues. Try this 
 
 Example usage with all options:
 ```php
-//Use 'dependencies' instead of 'service_manager' here if using Zend Expressive
+// Use 'dependencies' instead of 'service_manager' here if using Zend Expressive
 'service_manager' => [
 
     // This is a special config key that zf-config-factories reads.
@@ -40,7 +40,14 @@ Example usage with all options:
              * Not required if the service's constructor takes no arguments.
              * Not compatible with the 'factory' option (see below)
              */
-            'arguments' => ['Name\Of\A\Service\I\Want\To\Inject'],
+            'arguments' => [
+                'Name\Of\A\Service\I\Want\To\Inject',
+                'Name\Of\A\Service\I\Want\To\Inject2',
+                'Name\Of\A\Service\I\Want\To\Inject3',
+                'Name\Of\A\Service\I\Want\To\Inject4',
+                ['literal' => 'aLiteralValueNotAService'],
+                'Name\Of\A\Service\I\Want\To\Inject5',
+            ],
             
             /** 
              * This is an array of setters to call mapped to service names to inject into each setter.
@@ -50,8 +57,8 @@ Example usage with all options:
                 ['setFunService', ['Name\Of\Another\Service\I\Want\To\Inject']],
                 ['setAnotherFunService', ['Name\Of\Another\Service\I\Want\To\Inject']]
             ],
-
-            /**
+            
+             /**
              * Zend-Expressive style factory which is an invokable class
              * 
              * Not required if your service has no factory.
@@ -72,7 +79,3 @@ Example usage with all options:
     ],
 ]
 ```
-
-Version 4 Announcement:
-- Dropped support for case-insensetive service names as ZF3 is dropping this feature. This improves performance.
-- Added support for ZF3 and zend-expressive
