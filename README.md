@@ -20,13 +20,13 @@ Factory classes are tedious. Factory closures have performance issues. Try this 
 
 Example usage with all options:
 ```php
-// in module.config.php
+// Use 'dependencies' instead of 'service_manager' here if using Zend Expressive
 'service_manager' => [
 
     // This is a special config key that zf-config-factories reads.
     'config_factories' => [
     
-        // This is the name of the service.
+        // This is the name of the service that we are defining.
         'EmailTemplateApi' => [
         
             /**
@@ -58,9 +58,17 @@ Example usage with all options:
                 ['setAnotherFunService', ['Name\Of\Another\Service\I\Want\To\Inject']]
             ],
             
+             /**
+             * Zend-Expressive style factory which is an invokable class
+             * 
+             * Not required if your service has no factory.
+             * Not compatible with the 'arguments' option (see above)
+             */ 
+            'factory' => 'FunModule\FactoryClassName',
+
             /** 
-             * If your service is built with a factory, register your factory its self as service
-             * and call it like this. This is how factories work in Symfony.
+             * Symfony style factory that is a service itself.
+             *
              * Not required if your service has no factory.
              * Not compatible with the 'arguments' option (see above)
              */ 
