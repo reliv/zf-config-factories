@@ -46,6 +46,7 @@ Example usage with all options:
                 'Name\Of\A\Service\I\Want\To\Inject3',
                 'Name\Of\A\Service\I\Want\To\Inject4',
                 ['literal' => 'aLiteralValueNotAService'],
+                'Name\Of\A\Service\I\Want\To\Inject5',
             ],
             
             /** 
