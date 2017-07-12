@@ -207,8 +207,10 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         foreach ($argumentServiceNames as $serviceName) {
             if (!is_array($serviceName)) {
                 $services[] = $serviceMgr->get($serviceName);
-            } else if (array_key_exists('literal', $serviceName)) {
-                $services[] = $serviceName['literal'];
+            } else {
+                if (array_key_exists('literal', $serviceName)) {
+                    $services[] = $serviceName['literal'];
+                }
             }
         }
 
