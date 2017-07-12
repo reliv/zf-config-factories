@@ -67,7 +67,11 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertFalse(
-            $this->unit->canCreateServiceWithName($serviceLocator, 'NotApp\Email\EmailService', 'App\Email\OtherService')
+            $this->unit->canCreateServiceWithName(
+                $serviceLocator,
+                'NotApp\Email\EmailService',
+                'App\Email\OtherService'
+            )
         );
     }
 
@@ -103,8 +107,8 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
                     'config_factories' => [
                         'Reliv\ZfConfigFactories\Test\MockService' => [
                             'calls' => [
-                                ['set1' , ['hi', 'hiagain']],
-                                ['set2' , ['aloha']]
+                                ['set1', ['hi', 'hiagain']],
+                                ['set2', ['aloha']]
                             ]
                         ]
                     ]
@@ -166,7 +170,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $services = [];
         for ($i = 1; $i < 41; $i++) {
             $args[] = 'arg' . $i;
-            $services []= 'service' . $i;
+            $services [] = 'service' . $i;
             $this->setup();
             $serviceLocator = $this->buildServiceLocatorMock(
                 [
@@ -185,7 +189,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             }
 
             for ($ii = 1; $ii <= $i; $ii++) {
-                $serviceLocator->expects($this->at($ii+1))
+                $serviceLocator->expects($this->at($ii + 1))
                     ->method('get')
                     ->will($this->returnValue('service' . $ii));
             }
@@ -198,6 +202,45 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue($service instanceof MockService);
             $this->assertEquals($services, $service->getConstructorArgs());
         }
+    }
+
+    public function testCreateServiceLiteralArgsAndCalls()
+    {
+        if (!$this->serviceMgrIsRoot) {
+            return;
+        }
+        $serviceLocator = $this->buildServiceLocatorMock(
+            [
+                $this->serviceMgrConfigName => [
+                    'config_factories' => [
+                        'Reliv\ZfConfigFactories\Test\MockService' => [
+                            'arguments' => [
+                                ['literal' => 'arg1'],
+                                ['literal' => 'arg2'],
+                            ],
+                            'calls' => [
+                                ['set1', [['literal' => 'call1arg1'], ['literal' => 'call1arg2']]],
+                                ['set2', [['literal' => 'call2arg1']]]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        );
+
+        $serviceLocator->expects($this->once())->method('get');
+
+        $service = $this->unit->createServiceWithName(
+            $serviceLocator,
+            'Reliv\ZfConfigFactories\Test\MockService',
+            'Reliv\ZfConfigFactories\Test\MockService'
+        );
+        $this->assertTrue(
+            $service instanceof MockService
+        );
+        $this->assertEquals(['arg1', 'arg2'], $service->getConstructorArgs());
+        $this->assertEquals(['call1arg1', 'call1arg2'], $service->set1Args);
+        $this->assertEquals(['call2arg1'], $service->set2Args);
     }
 
     /**

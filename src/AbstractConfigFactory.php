@@ -136,7 +136,6 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         }
 
         if (isset($config['factory'])) {
-
             //Symfony-style factories that are services themselves
             if (is_array($config['factory'])) {
                 $factoryServiceName = $config['factory'][0];
@@ -172,7 +171,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
             $service = $this->instantiator->instantiateWithArguments(
                 $className,
-                $this->fetchServices($serviceMgr, $config['arguments'])
+                $this->processArgs($serviceMgr, $config['arguments'])
             );
         } else {
             $service = new $className();
@@ -184,7 +183,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
                 $arguments = $arguments[1];
                 call_user_func_array(
                     [$service, $methodName],
-                    $this->fetchServices($serviceMgr, $arguments)
+                    $this->processArgs($serviceMgr, $arguments)
                 );
             }
         }
@@ -200,13 +199,19 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
      *
      * @return array
      */
-    protected function fetchServices(
+    protected function processArgs(
         ServiceLocatorInterface $serviceMgr,
         $argumentServiceNames
     ) {
         $services = [];
-        foreach ($argumentServiceNames as $serviceNames) {
-            $services[] = $serviceMgr->get($serviceNames);
+        foreach ($argumentServiceNames as $serviceName) {
+            if (!is_array($serviceName)) {
+                $services[] = $serviceMgr->get($serviceName);
+            } else {
+                if (array_key_exists('literal', $serviceName)) {
+                    $services[] = $serviceName['literal'];
+                }
+            }
         }
 
         return $services;
