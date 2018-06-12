@@ -213,7 +213,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
         if (!is_array($path)) {
             if (!array_key_exists($path, $value)) {
-                throw new \Exception('"' . $path . '" not found in config');
+                throw new \Exception('Path "' . $path . '" not found in config');
             }
 
             return $value[$path]; //path was is a string
@@ -222,7 +222,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         foreach ($path as $pathStep) {
             if (!array_key_exists($pathStep, $value)) {
                 throw new \Exception(
-                    '"' . $pathStep . '" not found in config path ' . json_encode($path)
+                    'Path step "' . $pathStep . '" not found in config path ' . json_encode($path)
                 );
             }
             $value = $value[$pathStep];
