@@ -243,6 +243,70 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['call2arg1'], $service->set2Args);
     }
 
+    public function testCreateServiceUsingFromConfigInArgsAndCalls()
+    {
+        if (!$this->serviceMgrIsRoot) {
+            return;
+        }
+        $serviceLocator = $this->buildServiceLocatorMock(
+            [
+                $this->serviceMgrConfigName => [
+                    'config_factories' => [
+                        'Reliv\ZfConfigFactories\Test\MockService' => [
+                            'arguments' => [
+                                ['from_config' => 'flatThing'],
+                                [
+                                    'from_config' => ['funModule', 'funSection', 'deepThing'],
+                                ]
+                            ],
+                            'calls' => [
+                                [
+                                    'set1',
+                                    [
+                                        ['from_config' => 'flatThing'],
+                                        ['from_config' => ['funModule', 'funSection', 'deepThing']]
+                                    ]
+                                ],
+                                [
+                                    'set2',
+                                    [
+                                        ['from_config' => ['funModule', 'funSection', 'deepThing']]
+                                    ]
+                                ]
+                            ]
+                        ]
+
+                    ]
+                ]
+            ]
+        );
+
+        $serviceLocator->expects($this->any())->method('get')
+            ->with($this->equalTo('config'))
+            ->will($this->returnValue([
+                'funModule' => [
+                    'funSection' => [
+                        'deepThing' => 'deepValue'
+                    ]
+                ],
+                'flatThing' => 'flatValue'
+            ]));
+
+        $serviceLocator->expects($this->any())->method('get');
+
+        $service = $this->unit->createServiceWithName(
+            $serviceLocator,
+            'Reliv\ZfConfigFactories\Test\MockService',
+            'Reliv\ZfConfigFactories\Test\MockService'
+        );
+        $this->assertTrue(
+            $service instanceof MockService
+        );
+        $this->assertEquals(['flatValue', 'deepValue'], $service->getConstructorArgs());
+        $this->assertEquals(['flatValue', 'deepValue'], $service->set1Args);
+        $this->assertEquals(['deepValue'], $service->set2Args);
+    }
+
     /**
      * Build service locator mock
      *

@@ -35,7 +35,6 @@ use Interop\Container\ContainerInterface;
  */
 abstract class AbstractConfigFactory implements AbstractFactoryInterface
 {
-
     /**
      * @var string the config key of the target service manager
      */
@@ -60,6 +59,13 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
      * @var Instantiator | null
      */
     protected $instantiator;
+
+    /**
+     * Is the service name that the 'from_config' feature looks in for config values.
+     *
+     * @var string
+     */
+    protected $configServiceName = 'config';
 
     /**
      * (For ZF3 Support)
@@ -192,6 +198,40 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
     }
 
     /**
+     * Reads the value at the given path from a service name called "config"
+     *
+     * @param ServiceLocatorInterface $serviceMgr
+     * @param array|string $path
+     * @return array|mixed|object
+     * @throws \Exception
+     */
+    protected function getValueFromConfigService(
+        ServiceLocatorInterface $serviceMgr,
+        $path
+    ) {
+        $value = $serviceMgr->get($this->configServiceName);
+
+        if (!is_array($path)) {
+            if (!array_key_exists($path, $value)) {
+                throw new \Exception('"' . $path . '" not found in config');
+            }
+
+            return $value[$path]; //path was is a string
+        }
+
+        foreach ($path as $pathStep) {
+            if (!array_key_exists($pathStep, $value)) {
+                throw new \Exception(
+                    '"' . $pathStep . '" not found in config path ' . json_encode($path)
+                );
+            }
+            $value = $value[$pathStep];
+        }
+
+        return $value;  //path was an array (a deep path)
+    }
+
+    /**
      * Converts an service names to to an array of their corresponding services
      *
      * @param ServiceLocatorInterface $serviceMgr
@@ -210,6 +250,13 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
             } else {
                 if (array_key_exists('literal', $serviceName)) {
                     $services[] = $serviceName['literal'];
+                } elseif (array_key_exists('from_config', $serviceName)) {
+                    $services[] = $this->getValueFromConfigService($serviceMgr, $serviceName['from_config']);
+                } else {
+                    throw new \Exception('If argument is an array, the array'
+                        . ' must either have a "literal" key or a "from_config" key.'
+                        . ' Got: ' . json_encode($serviceName)
+                    );
                 }
             }
         }

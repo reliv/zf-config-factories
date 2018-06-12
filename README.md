@@ -46,6 +46,8 @@ Example usage with all options:
                 'Name\Of\A\Service\I\Want\To\Inject3',
                 'Name\Of\A\Service\I\Want\To\Inject4',
                 ['literal' => 'aLiteralValueNotAService'],
+                ['from_config' => 'aConfigKeyIWantToReadAndInjectHereNotAService'],
+                ['from_config' => 'path','to','aDeepNestedConfigKeyIWantToReadAndInjectHereNotAService'],
                 'Name\Of\A\Service\I\Want\To\Inject5',
             ],
             
