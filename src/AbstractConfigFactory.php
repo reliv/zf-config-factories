@@ -15,6 +15,8 @@
 
 namespace Reliv\ZfConfigFactories;
 
+use Reliv\ZfConfigFactories\Exception\InvalidConfigException;
+use Reliv\ZfConfigFactories\Exception\ServiceNotFoundException;
 use Reliv\ZfConfigFactories\Helper\Instantiator;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -138,7 +140,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
         $config = $this->getFactoryConfig($serviceMgr, $requestedName);
 
         if (!is_array($config)) {
-            throw new \Exception('Service not found: ' . $requestedName);
+            throw new ServiceNotFoundException('Service not found: ' . $requestedName);
         }
 
         if (isset($config['factory'])) {
@@ -213,7 +215,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
         if (!is_array($path)) {
             if (!array_key_exists($path, $value)) {
-                throw new \Exception('Path "' . $path . '" not found in config');
+                throw new InvalidConfigException('Path "' . $path . '" not found in config');
             }
 
             return $value[$path]; //path was is a string
@@ -221,7 +223,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
 
         foreach ($path as $pathStep) {
             if (!array_key_exists($pathStep, $value)) {
-                throw new \Exception(
+                throw new InvalidConfigException(
                     'Path step "' . $pathStep . '" not found in config path ' . json_encode($path)
                 );
             }
@@ -253,7 +255,7 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
                 } elseif (array_key_exists('from_config', $serviceName)) {
                     $services[] = $this->getValueFromConfigService($serviceMgr, $serviceName['from_config']);
                 } else {
-                    throw new \Exception('If argument is an array, the array'
+                    throw new InvalidConfigException('If argument is an array, the array'
                         . ' must either have a "literal" key or a "from_config" key.'
                         . ' Got: ' . json_encode($serviceName)
                     );
