@@ -2,7 +2,7 @@
 
 namespace Reliv\ZfConfigFactories\Exception;
 
-class ServiceNotFoundException extends \Exception implements ExceptionInterface;
+class ServiceNotFoundException extends \Exception implements ExceptionInterface
 {
 
 }
