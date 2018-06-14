@@ -2,7 +2,7 @@
 
 namespace Reliv\ZfConfigFactories\Exception;
 
-class InvalidConfigException extends \Exception implements ExceptionInterface;
+class InvalidConfigException extends \Exception implements ExceptionInterface
 {
 
 }

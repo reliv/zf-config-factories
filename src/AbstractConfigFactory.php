@@ -255,10 +255,13 @@ abstract class AbstractConfigFactory implements AbstractFactoryInterface
                 } elseif (array_key_exists('from_config', $serviceName)) {
                     $services[] = $this->getValueFromConfigService($serviceMgr, $serviceName['from_config']);
                 } else {
-                    throw new InvalidConfigException('If argument is an array, the array'
-                        . ' must either have a "literal" key or a "from_config" key.'
-                        . ' Got: ' . json_encode($serviceName)
-                    );
+//                    // This is removed for now because it breaks backward compatibility with people who have extra
+//                    // keys in their factory configs that they read from other libraries.
+//                    // It may return in a future major version.
+//                    throw new InvalidConfigException('If argument is an array, the array'
+//                        . ' must either have a "literal" key or a "from_config" key.'
+//                        . ' Got: ' . json_encode($serviceName)
+//                    );
                 }
             }
         }

@@ -1,14 +1,16 @@
 sudo: false
 language: php
 php:
-  - "7.0"
   - "5.6"
-  - "5.5"
+  - "7.0"
+  - "7.1"
 install:
   - composer self-update
-  - composer install
+  - composer update
 script:
   - ./vendor/bin/phpunit
+  - find ./src -name "*.php" -print0 | xargs -0 -n1 -P256 php -l
+  - ./vendor/bin/phpcs --standard=PSR2 ./src
 cache:
   directories:
     - $HOME/.composer/cache
