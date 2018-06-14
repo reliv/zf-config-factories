@@ -2,6 +2,7 @@
 
 namespace Reliv\ZfConfigFactories\Test;
 
+use PHPUnit\Framework\TestCase;
 use Reliv\ZfConfigFactories\ConcreteFactory\ServiceFactory;
 
 /**
@@ -11,7 +12,7 @@ use Reliv\ZfConfigFactories\ConcreteFactory\ServiceFactory;
  * @covers Reliv\ZfConfigFactories\AbstractConfigFactory
  * @covers Reliv\ZfConfigFactories\Helper\Instantiator
  */
-class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
+class ServiceFactoryTest extends TestCase
 {
     protected $unit;
 
@@ -98,9 +99,6 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateServiceWithNameWithSetterCalls()
     {
-        if (!$this->serviceMgrIsRoot) {
-            return;
-        }
         $serviceLocator = $this->buildServiceLocatorMock(
             [
                 $this->serviceMgrConfigName => [
@@ -116,15 +114,9 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $serviceLocator->expects($this->at(2))
-            ->method('get')
-            ->will($this->returnValue('hiservice'));
-        $serviceLocator->expects($this->at(3))
-            ->method('get')
-            ->will($this->returnValue('hiagainservice'));
-        $serviceLocator->expects($this->at(4))
-            ->method('get')
-            ->will($this->returnValue('alohaservice'));
+        $serviceLocator->allows()->get('hi')->andReturns('hiservice');
+        $serviceLocator->allows()->get('hiagain')->andReturns('hiagainservice');
+        $serviceLocator->allows()->get('aloha')->andReturns('alohaservice');
 
         $service = $this->unit->createServiceWithName(
             $serviceLocator,
@@ -163,9 +155,6 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateServiceWithNameWithOneToFortyConstructorArgs()
     {
-        if (!$this->serviceMgrIsRoot) {
-            return;
-        }
         $args = [];
         $services = [];
         for ($i = 1; $i < 41; $i++) {
@@ -189,9 +178,7 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             }
 
             for ($ii = 1; $ii <= $i; $ii++) {
-                $serviceLocator->expects($this->at($ii + 1))
-                    ->method('get')
-                    ->will($this->returnValue('service' . $ii));
+                $serviceLocator->allows()->get('arg' . $ii)->andReturns('service' . $ii);
             }
 
             $service = $this->unit->createServiceWithName(
@@ -206,9 +193,6 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateServiceLiteralArgsAndCalls()
     {
-        if (!$this->serviceMgrIsRoot) {
-            return;
-        }
         $serviceLocator = $this->buildServiceLocatorMock(
             [
                 $this->serviceMgrConfigName => [
@@ -228,8 +212,6 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
             ]
         );
 
-        $serviceLocator->expects($this->once())->method('get');
-
         $service = $this->unit->createServiceWithName(
             $serviceLocator,
             'Reliv\ZfConfigFactories\Test\MockService',
@@ -245,9 +227,6 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateServiceUsingFromConfigInArgsAndCalls()
     {
-        if (!$this->serviceMgrIsRoot) {
-            return;
-        }
         $serviceLocator = $this->buildServiceLocatorMock(
             [
                 $this->serviceMgrConfigName => [
@@ -277,22 +256,16 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
                         ]
 
                     ]
-                ]
-            ]
-        );
-
-        $serviceLocator->expects($this->any())->method('get')
-            ->with($this->equalTo('config'))
-            ->will($this->returnValue([
+                ],
                 'funModule' => [
                     'funSection' => [
                         'deepThing' => 'deepValue'
                     ]
                 ],
                 'flatThing' => 'flatValue'
-            ]));
+            ]
+        );
 
-        $serviceLocator->expects($this->any())->method('get');
 
         $service = $this->unit->createServiceWithName(
             $serviceLocator,
@@ -315,22 +288,10 @@ class ServiceFactoryTest extends \PHPUnit_Framework_TestCase
      */
     protected function buildServiceLocatorMock($willReturnConfig)
     {
-        $serviceLocator = $this
-            ->getMockBuilder('Zend\ServiceManager\ServiceLocatorInterface')
-            ->setMethods(['getServiceLocator', 'get', 'has'])
-            ->getMock();
-
-        $serviceLocator->expects($this->at(0))
-            ->method('has')
-            ->will($this->returnValue(true));
-
-        $serviceLocator->expects($this->at(1))
-            ->method('get')
-            ->will($this->returnValue($willReturnConfig));
-
-        $serviceLocator->expects($this->at(1))
-            ->method('get')
-            ->will($this->returnValue($willReturnConfig));
+        $serviceLocator = \Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $serviceLocator->allows()->has(\Mockery::any())->andReturns(true);
+        $serviceLocator->allows()->get('config')->andReturns($willReturnConfig);
+        $serviceLocator->allows()->getServiceLocator()->andReturns($serviceLocator);
 
         return $serviceLocator;
     }
